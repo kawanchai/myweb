@@ -1,14 +1,16 @@
 <template>
   <section class="au-animate">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 style="color:#FFF;">${heading}</h2>
-            <img src="../img/1.jpg" class="img-responsive"/>
-            <img src="../img/2.jpg" class="img-responsive"/>
-            <img src="../img/3.jpg" class="img-responsive"/>
-
-        </div>
+    <h2>${heading}</h2>
+    <div>
+      <div class="col-md-2">
+        <ul class="well nav nav-pills nav-stacked">
+          <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+            <a href.bind="row.href">${row.title}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-10" style="padding: 0">
+        <router-view></router-view>
       </div>
     </div>
   </section>
